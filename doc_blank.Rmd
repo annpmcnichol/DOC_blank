@@ -11,16 +11,21 @@ output: html_document
 library(tidyverse) 
 ```
 
-##
+## load data
 
 ```{r}
 doc_data <- read_csv("./Data/doc_blank_all_ascii.csv", col_names = TRUE)
 ```
 
-##
+## tidy up data
 
 ```{r}
-ggplot(data = doc_data) +
-  geom_point(aes(x = doc_date, y = fm_u))
+OxIIdat <- filter(doc_data, rec_num %in% c(52092, 53212))
+```
+
+```{r}
+ggplot(data = OxIIdat) +
+   geom_point(aes(x = doc_date, y = fm_u, size = doc_co2_yield, color = doc_co2_yield)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 7))
 ```
 
