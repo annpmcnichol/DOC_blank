@@ -1,0 +1,26 @@
+---
+title: "DOC_blank"
+author: "Ann McNichol"
+date: "October 24, 2018"
+output: html_document
+---
+
+## comment
+
+```{r}
+library(tidyverse) 
+```
+
+##
+
+```{r}
+doc_data <- read_csv("./Data/doc_blank_all_ascii.csv", col_names = TRUE)
+```
+
+##
+
+```{r}
+ggplot(data = doc_data) +
+  geom_point(aes(x = doc_date, y = fm_u))
+```
+
